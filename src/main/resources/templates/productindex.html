@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<title>Product Manager</title>
+<style>
+.cards {
+ 
+  grid-gap: 2vw;
+  padding: 0 10vw;
+  align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display:flex;
+}
+
+.card {
+width:100%;
+  border-radius: 4px;
+  padding: .5rem;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  color: #5d5e5e;
+}
+.card-content {
+    font-size: .75rem;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+.category {
+    position: absolute;
+    top: 110px;
+    left: 0;
+    color: #fff;
+    background: #e74c3c;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.category__01 {
+  background-color: #50c6db;
+}
+.category__03 {
+  background-color: #3c59e7;
+}
+
+</style>
+</head>
+<body>
+<!-- create navigation bar ( header) -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header" style="width:35%">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/" ><span class="material-icons" style="margin-right: 12px;font-size:40px">home</span></a>
+				
+			</div>
+			<div class="navbar-header" style="width:30%"><h2 style="color:white;font-weight:bolder">Product Management</h2></div>
+			<div style="margin-top:10px;width:35%" class="navbar-header">
+			<a th:href="@{/logout}" style="float:right;">
+						<span class="material-icons" style="font-size:40px" sec:authorize="isAuthenticated()">logout</span>
+					</a>
+			</div>
+		</div>
+	</nav>
+	
+	<br>
+	<br>
+	<br>
+<div align="center">
+    <h1>Product List</h1>
+    
+    <div class="cards">
+		<a href="/new" style="width:30%">
+		  	<article class="card">
+		    <picture class="thumbnail" style="border-color:#50c6db">
+		        <span class="material-icons" style="color: lightblue;font-size: 100px;">create</span>
+		    </picture>
+		    <div class="card-content">
+		      <p class="category category__01">Create New Product</p>
+		   </div>
+		  </article>
+		  </a>
+		  <a href="/view" style="width:30%">
+		  	<article class="card">
+		    <picture class="thumbnail" style="border-color:#e74c3c">
+		        <span class="material-icons" style="color: #e74c3c;font-size: 100px;">table_view</span>
+		    </picture>
+		    <div class="card-content">
+		      <p class="category category__02">View Products</p>
+		   </div>
+		  </article>
+		  </a>
+		   <a href="/search" style="width:30%">
+		  	<article class="card">
+		    <picture class="thumbnail" style="border-color:#3c59e7">
+		        <span class="material-icons" style="color: #3c59e7;font-size: 100px;">search</span>
+		    </picture>
+		    <div class="card-content">
+		      <p class="category category__03">Search Products</p>
+		   </div>
+		  </article>
+		  </a>
+	</div>
+</div>   
+</body>
+</html>

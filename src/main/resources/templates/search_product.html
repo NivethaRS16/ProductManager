@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+	<style>
+	.error-message{
+	font-size:16px;
+	color:red;
+	}
+	</style>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+
+<body>
+	<!-- create navigation bar ( header) -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header" style="width:35%">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/" ><span class="material-icons" style="margin-right: 12px;font-size:40px">home</span></a>
+				
+			</div>
+			<div class="navbar-header" style="width:30%"><h2 style="color:white;font-weight:bolder">Product Management</h2></div>
+			<div style="margin-top:10px;width:35%" class="navbar-header">
+			<a th:href="@{/logout}" style="float:right;">
+						<span class="material-icons" style="font-size:40px" sec:authorize="isAuthenticated()">logout</span>
+					</a>
+			</div>
+		</div>
+	</nav>
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class = "container">
+		<div class = "row">
+			<div class = "col-md-6 col-md-offset-3">
+   
+        <h1>Search Product</h1>
+        
+        <form action="#" th:action="@{/searchproduct/}" th:object="${product}"
+            method="post">
+            
+        <table border="0" cellpadding="10">
+                <tr style="height: 60px;">
+                    <td>Enter Product Id:</td>
+                    <td><input type="text" th:field="*{id}" /></td>
+                </tr>
+                <tr style="height: 30px;" th:if="${errorMessage}">
+                  <td><span  class="error-message"  th:text="${errorMessage}">Error</span></td>
+                </tr><br><br>
+                <tr style="height: 60px;">
+                    <td colspan="2"><button type="submit" class="btn btn-info">Search</button> </td>
+                </tr>
+            </table>
+        </form>
+            
+</div> 
+</div>
+</body>
+</html>
